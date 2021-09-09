@@ -51,7 +51,20 @@ public class L2 {
         // y = -1.25x + 5
         double x = sc.nextDouble();
         double y = sc.nextDouble();
-        if (y <= -1.25*x + 5) {
+        // if (y <= -1.25*x + 5) {
+        //     if (y >= 0) {
+        //         if (x >= 0) {
+        //             System.out.println("Inside");
+        //         } else {
+        //             System.out.println("Outside");
+        //         }
+        //     } else {
+        //         System.out.println("Outside");
+        //     }
+        // } else {
+        //     System.out.println("Outside");
+        // }
+        if (y <= -1.25*x + 5 && y >= 0 && x >= 0) {
             System.out.println("Inside");
         } else {
             System.out.println("Outside");
