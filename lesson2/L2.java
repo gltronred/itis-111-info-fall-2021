@@ -30,11 +30,31 @@ public class L2 {
         //
         /////////////////////////////////////
         //
-        int a = sc.nextInt();
-        if (a % 2 == 0) {
-            System.out.println("Even");
+        // int a = sc.nextInt();
+        // if (a % 2 == 0) {
+        //     System.out.println("Even");
+        // } else {
+        //     System.out.println("Odd");
+        // }
+        /////////////////////////////////////
+        // Вводятся координаты точки,
+        // проверить, что она ниже прямой
+        // через (0,5) и (4,0)
+        //
+        // Уравнение прямой через эти точки?
+        // y = kx + b
+        // Система уравнений
+        // 5 = b
+        // 0 = 4k + 5
+        // k = -1.25
+        // Уравнение:
+        // y = -1.25x + 5
+        double x = sc.nextDouble();
+        double y = sc.nextDouble();
+        if (y <= -1.25*x + 5) {
+            System.out.println("Inside");
         } else {
-            System.out.println("Odd");
+            System.out.println("Outside");
         }
     }
 }
