@@ -11,11 +11,14 @@ public class L2 {
         // int c = sc.nextInt();
         // int d = a*b*c;
         // System.out.println(d);
-        double a = sc.nextDouble();
-        double b = sc.nextDouble();
-        System.out.println(a+b);
+        //
+        /////////////////////////////////////
+        //
         // Ввод вещественных чисел зависит
         // от настроек локали:
+        // double a = sc.nextDouble();
+        // double b = sc.nextDouble();
+        // System.out.println(a+b);
         //
         // $ java L2
         // 1,2 3,4
@@ -24,5 +27,14 @@ public class L2 {
         // $ LC_ALL=C java L2
         // 1.2 3.4
         // 4.6
+        //
+        /////////////////////////////////////
+        //
+        int a = sc.nextInt();
+        if (a % 2 == 0) {
+            System.out.println("Even");
+        } else {
+            System.out.println("Odd");
+        }
     }
 }
