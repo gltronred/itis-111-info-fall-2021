@@ -50,5 +50,14 @@ public class L3 {
         // 4
         // 7
         // (потому что 1+2+4=7)
+        //
+        int n = sc.nextInt();
+        int s = 0;
+        for (int i=1; i<=n; i++) {
+            if (n % i == 0) {
+                s += i;
+            }
+        }
+        System.out.println(s);
     }
 }
