@@ -20,7 +20,7 @@ public class L4 {
         // 1 0
         // 0
         //
-        // 10 1 30 0
+        // 10 5 1 20 30 0
         // 0
         int x = sc.nextInt();
         // min - минимальное число
@@ -39,7 +39,10 @@ public class L4 {
             if (x > max) {
                 max = x;
                 n = 0;
+                cnt = 0;
             }
+            // // Отладочный вывод:
+            // System.out.println(x + " min=" + min + " max=" + max + " n=" + n + " cnt=" + cnt);
             x = sc.nextInt();
         }
         if (cnt >= 0) {
