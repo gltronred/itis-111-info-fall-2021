@@ -25,9 +25,10 @@ public class L4 {
         int x = sc.nextInt();
         // min - минимальное число
         int min = x;
+        int max = x;
         int n = 0;
-        // cnt - количество чисел до
-        // последнего минимального
+        // cnt - количество чисел после макс.
+        // до последнего минимального
         int cnt = -1;
         while (x != 0) {
             if (x <= min) {
@@ -35,6 +36,10 @@ public class L4 {
                 cnt = n;
             }
             n++;
+            if (x > max) {
+                max = x;
+                n = 0;
+            }
             x = sc.nextInt();
         }
         if (cnt >= 0) {
