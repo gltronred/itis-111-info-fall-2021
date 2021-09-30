@@ -48,14 +48,41 @@ public class L5 {
         // >    2 1
         // <    7
 
-        int n = sc.nextInt();
-        int k = sc.nextInt();
-        int z = 0;
-        for (int i=n-1; i>=0; i--) {
-            int a = sc.nextInt();
-            z *= k;
-            z += a;
-        }
-        System.out.println(z);
+        // int n = sc.nextInt();
+        // int k = sc.nextInt();
+        // int z = 0;
+        // for (int i=n-1; i>=0; i--) {
+        //     int a = sc.nextInt();
+        //     z *= k;
+        //     z += a;
+        // }
+        // System.out.println(z);
+
+        // \sum (-1)^k x^{2k} / (2k)!
+        double x = sc.nextDouble();
+        double s = 0;
+        double p = 1;
+        int k = 0;
+        do {
+            if (k % 2 == 1) {
+                p = -1;
+            } else {
+                p = 1;
+            }
+            for (int i=0; i<2*k; i++) {
+                p *= x;
+            }
+            int fact = 1;
+            for (int i=1; i<=2*k; i++) {
+                fact *= i;
+            }
+            p /= fact;
+            s += p;
+            k++;
+        } while (Math.abs(p) >= 1e-6);
+        System.out.println(s);
+        System.out.println(Math.cos(x));
+        // 1e-6 = 10^(-6)
+        // 1.23e4 = 1.23 * 10^4
     }
 }
