@@ -47,5 +47,15 @@ public class L5 {
         // >    2 3
         // >    2 1
         // <    7
+
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int z = 0;
+        for (int i=n-1; i>=0; i--) {
+            int a = sc.nextInt();
+            z *= k;
+            z += a;
+        }
+        System.out.println(z);
     }
 }
