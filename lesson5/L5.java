@@ -28,11 +28,8 @@ public class L5 {
         double z = 0;
         for (int k=n; k>=0; k--) {
             double a = sc.nextDouble();
-            double p = a;
-            for (int i=0; i<k; i++) {
-                p *= y;
-            }
-            z += p;
+            z *= y;
+            z += a;
         }
         System.out.println(z);
     }
