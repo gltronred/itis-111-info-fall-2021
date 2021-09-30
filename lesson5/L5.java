@@ -23,14 +23,29 @@ public class L5 {
         // Вычислите, используя схему Горнера:
         // P(x) = (...(a_n x + a_{n-1})x + ... +
         //      + a_1)x + a_0
-        double y = sc.nextDouble();
-        int n = sc.nextInt();
-        double z = 0;
-        for (int k=n; k>=0; k--) {
-            double a = sc.nextDouble();
-            z *= y;
-            z += a;
-        }
-        System.out.println(z);
+        //
+        // double y = sc.nextDouble();
+        // int n = sc.nextInt();
+        // double z = 0;
+        // for (int k=n; k>=0; k--) {
+        //     double a = sc.nextDouble();
+        //     z *= y;
+        //     z += a;
+        // }
+        // System.out.println(z);
+
+        // Вводятся целые n и k
+        // Вводятся n цифр числа в k-ичной
+        // системе счисления, начиная со
+        // старшей
+        // Вывести это число в десятичной
+        //
+        // >    5 2
+        // >    1 1 0 1 0
+        // <    26
+        //
+        // >    2 3
+        // >    2 1
+        // <    7
     }
 }
