@@ -25,5 +25,8 @@ public class L6 {
         // System.out.println(a[6]);
         System.out.println(b[0]);
         System.out.println(b[1]);
+        // Вывод массива в одну строку
+        // (но в фиксированном формате)
+        System.out.println(Arrays.toString(a));
     }
 }
