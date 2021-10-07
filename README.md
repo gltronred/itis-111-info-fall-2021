@@ -128,3 +128,16 @@ for (int i=0; i<n; i++) {
 System.out.println(Arrays.toString(a));
 System.out.println(Arrays.toString(b));
 ```
+
+```
+5
+[5, 4, 3, 2, 1]
+[1, 5, 2, 4, 3]
+```
+
+```
+6
+[6, 5, 4, 3, 2, 1]
+[1, 6, 2, 5, 3, 4]
+```
+
