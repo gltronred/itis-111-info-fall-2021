@@ -4,10 +4,11 @@ import java.util.*;
 public class L6 {
     public static void main(String args[]) {
         // Объявление и инициализация (указание размера массива)
-        int[] a = new int[6];
+        int n = 3;
+        int[] a = new int[2*n];
         double[] b = new double[2];
         // Заполнение элементов массива
-        for (int i=0; i<6; i++) {
+        for (int i=0; i<2*n; i++) {
             a[i] = i;
         }
         // Для индексов вы можете использовать
@@ -17,7 +18,7 @@ public class L6 {
         b[k-2] = 4.3;
 
         // Вывод массива
-        for (int i=0; i<6; i++) {
+        for (int i=0; i<2*n; i++) {
             System.out.println(a[i]);
         }
         // Выдаёт ArrayIndexOutOfBoundsException:
