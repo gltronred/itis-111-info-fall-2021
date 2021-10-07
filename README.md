@@ -103,3 +103,28 @@ NO
 ```
 
 Вывести sin x по формуле с точностью 10^{-6}
+
+## 8
+
+Вводится n.
+
+Заполнить и вывести (через `Arrays.toString`) массивы:
+- в обратном порядке, начиная с n
+- элементы на четных индексах возрастают, 
+  на нечётных убывают (от 1 до n)
+
+Код заполнения должен выглядеть так:
+
+``` java
+Scanner sc = new Scanner(System.in);
+int n = sc.nextInt();
+int[] a = new int[n];
+int[] b = new int[n];
+for (int i=0; i<n; i++) {
+  int k = i; // можно менять только эту строку
+  a[k] = i+1; // первый массив
+  b[k] = i+1; // второй массив
+}
+System.out.println(Arrays.toString(a));
+System.out.println(Arrays.toString(b));
+```
