@@ -121,9 +121,10 @@ int n = sc.nextInt();
 int[] a = new int[n];
 int[] b = new int[n];
 for (int i=0; i<n; i++) {
-  int k = i; // можно менять только эту строку
-  a[k] = i+1; // первый массив
-  b[k] = i+1; // второй массив
+  int k1 = i; // можно менять эту строку
+  a[k1] = i+1; // первый массив
+  int k2 = i; // можно менять эту строку
+  b[k2] = i+1; // второй массив
 }
 System.out.println(Arrays.toString(a));
 System.out.println(Arrays.toString(b));
