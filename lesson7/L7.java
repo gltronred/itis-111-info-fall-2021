@@ -28,34 +28,57 @@ public class L7 {
         //     System.out.println(Arrays.toString(b[i]));
         // }
 
+        // Scanner sc = new Scanner(System.in);
+        // int n = sc.nextInt();
+        // int m = sc.nextInt();
+        // int[][] a = new int[n][m];
+        // for (int i=0; i<n; i++) {
+        //     for (int j=0; j<m; j++) {
+        //         a[i][j] = sc.nextInt();
+        //     }
+        // }
+
+        // int s0 = 0;
+        // for (int j=0; j<m; j++) {
+        //     s0 += a[0][j];
+        // }
+
+        // boolean f = true;
+        // for (int i=0; i<n; i++) {
+        //     int sj = 0;
+        //     for (int j=0; j<m; j++) {
+        //         sj += a[i][j];
+        //     }
+        //     f &= (sj == s0);
+        // }
+
+        // if (f) {
+        //     System.out.println("YES " + s0);
+        // } else {
+        //     System.out.println("NO");
+        // }
+
+        // Заполнить массив - на главной диагонали 1,
+        // на побочной 2 (если элемент и тут, и там - 1)
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int m = sc.nextInt();
-        int[][] a = new int[n][m];
+        int[][] a = new int[n][n];
         for (int i=0; i<n; i++) {
-            for (int j=0; j<m; j++) {
-                a[i][j] = sc.nextInt();
+            for (int j=0; j<n; j++) {
+                if (i==j) {
+                    a[i][j] = 1;
+                } else if (i==n-j-1) {
+                    a[i][j] = 2;
+                } else {
+                    a[i][j] = 0;
+                }
             }
         }
-
-        int s0 = 0;
-        for (int j=0; j<m; j++) {
-            s0 += a[0][j];
-        }
-
-        boolean f = true;
         for (int i=0; i<n; i++) {
-            int sj = 0;
-            for (int j=0; j<m; j++) {
-                sj += a[i][j];
+            for (int j=0; j<n; j++) {
+                System.out.print(a[i][j] + " ");
             }
-            f &= (sj == s0);
-        }
-
-        if (f) {
-            System.out.println("YES " + s0);
-        } else {
-            System.out.println("NO");
+            System.out.println();
         }
     }
 }
