@@ -38,21 +38,22 @@ public class L7 {
             }
         }
 
-        int[] s = new int[m];
-        for (int j=0; j<m; j++) {
-            s[j] = 0;
-            for (int i=0; i<n; i++) {
-                s[j] += a[i][j];
-            }
+        int s0 = 0;
+        for (int i=0; i<n; i++) {
+            s0 += a[i][0];
         }
 
         boolean f = true;
-        for (int j=1; j<m; j++) {
-            f &= (s[j] == s[0]);
+        for (int j=0; j<m; j++) {
+            int sj = 0;
+            for (int i=0; i<n; i++) {
+                sj += a[i][j];
+            }
+            f &= (sj == s0);
         }
 
         if (f) {
-            System.out.println("YES " + s[0]);
+            System.out.println("YES " + s0);
         } else {
             System.out.println("NO");
         }
