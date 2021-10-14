@@ -39,14 +39,14 @@ public class L7 {
         }
 
         int s0 = 0;
-        for (int i=0; i<n; i++) {
-            s0 += a[i][0];
+        for (int j=0; j<m; j++) {
+            s0 += a[0][j];
         }
 
         boolean f = true;
-        for (int j=0; j<m; j++) {
+        for (int i=0; i<n; i++) {
             int sj = 0;
-            for (int i=0; i<n; i++) {
+            for (int j=0; j<m; j++) {
                 sj += a[i][j];
             }
             f &= (sj == s0);
