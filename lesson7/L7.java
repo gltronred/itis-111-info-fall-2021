@@ -64,21 +64,22 @@ public class L7 {
         int n = sc.nextInt();
         int m = sc.nextInt();
         int[][] a = new int[n][m];
-        // for (int i=0; i<n; i++) {
-        //     for (int j=0; j<n; j++) {
-        //         a[i][j] = Math.abs(i-j);
-        //     }
-        // }
-        for (int k=0; k<Math.min(n+1,m+1)/2; k++) {
-            for (int i=k; i<n-k; i++) {
-                a[i][k] = k+1;
-                a[i][m-k-1] = k+1;
-            }
-            for (int j=k; j<m-k; j++) {
-                a[k][j] = k+1;
-                a[n-k-1][j] = k+1;
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<m; j++) {
+                a[i][j] = Math.min(Math.min(i,j),
+                                   Math.min(n-i-1,m-j-1))+1;
             }
         }
+        // for (int k=0; k<Math.min(n+1,m+1)/2; k++) {
+        //     for (int i=k; i<n-k; i++) {
+        //         a[i][k] = k+1;
+        //         a[i][m-k-1] = k+1;
+        //     }
+        //     for (int j=k; j<m-k; j++) {
+        //         a[k][j] = k+1;
+        //         a[n-k-1][j] = k+1;
+        //     }
+        // }
         for (int i=0; i<n; i++) {
             for (int j=0; j<m; j++) {
                 System.out.print(a[i][j] + " ");
