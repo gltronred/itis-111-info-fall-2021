@@ -1,10 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-public class L9 {
-    public static void main(String[] args) {
-import java.util.*;
-
 
 public class L9 {
     public static void main(String[] args) {
@@ -30,7 +26,6 @@ public class L9 {
                         if (a[i][v] != 2) {
                             a[i][v] = 1;
                         }
-
                     }
                 }
             }
