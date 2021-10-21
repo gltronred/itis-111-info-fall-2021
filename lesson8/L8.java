@@ -39,14 +39,17 @@ public class L8 {
     char[][] matrix = new char[n][n];
     int[][] matrixint = new int[n][n];
 
+    // Ввод верхнего левого угла матрицы
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < m; j++) {
             matrixint[i][j] = sc.nextInt();
         }
     }
 
+    // Цикл по итерациям, пока не введём 0
     int p = 1;
     while (p == 1) {
+        // Подсчёт количества соседей у каждой клетки
         for (int i = 0; i < matrixint.length; i++) {
             for (int j = 0; j < matrixint.length; j++) {
                 count[i][j] = -matrixint[i][j];
@@ -58,6 +61,7 @@ public class L8 {
             }
         }
 
+        // Изменение состояния клеток
         for (int i = 0; i < matrixint.length; i++) {
             for (int j = 0; j < matrixint.length; j++) {
                 if (count[i][j] < 2) {
@@ -72,6 +76,7 @@ public class L8 {
             }
         }
 
+        // Вывод
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length ; j++) {
                 if (matrixint[i][j] == 1){
