@@ -25,8 +25,6 @@ public class L9 {
                         if (a[u][j] != 2) {
                             a[u][j] = 1;
                         }
-
-
                     }
                     for (int v = 0; v < n; v++) {
                         if (a[i][v] != 2) {
