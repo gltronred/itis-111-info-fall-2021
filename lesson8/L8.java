@@ -34,12 +34,13 @@ public class L8 {
     Scanner sc = new Scanner(System.in);
 
     int n = sc.nextInt();
+    int m = sc.nextInt();
     int[][] count = new int[n][n];
     char[][] matrix = new char[n][n];
     int[][] matrixint = new int[n][n];
 
-    for (int i = 0; i < matrixint.length; i++) {
-        for (int j = 0; j < matrixint.length; j++) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < m; j++) {
             matrixint[i][j] = sc.nextInt();
         }
     }
@@ -72,13 +73,15 @@ public class L8 {
         }
 
         for (int i = 0; i < matrix.length; i++) {
-            System.out.println();
             for (int j = 0; j < matrix.length ; j++) {
                 if (matrixint[i][j] == 1){
                     matrix[i][j] = '*';
+                } else {
+                    matrix[i][j] = ' ';
                 }
                 System.out.print(matrix[i][j] + " ");
             }
+            System.out.println();
         }
 
         p = sc.nextInt();
