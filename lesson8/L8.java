@@ -33,7 +33,8 @@ public class L8 {
     //
     Scanner sc = new Scanner(System.in);
 
-    int count = 0;
+    int n = sc.nextInt();
+    int[][] count = new int[n][n];
     char[][] matrix = new char[n][n];
     int[][] matrixint = new int[n][n];
 
@@ -45,13 +46,25 @@ public class L8 {
 
     for (int i = 0; i < matrixint.length; i++) {
         for (int j = 0; j < matrixint.length; j++) {
-            count = -matrixint[i][j];
+            count[i][j] = -matrixint[i][j];
             for (int k = -1; k <= 1; k++) {
                 for (int l = -1; l <= 1; l++) {
-                    count+= matrixint[(i + k + n)%(n)][(j + l + n)%(n)];
+                    count[i][j]+= matrixint[(i + k + n)%(n)][(j + l + n)%(n)];
                 }
             }
-            System.out.println(i + " " + j + " " + count);
+        }
+    }
+    for (int i = 0; i < matrixint.length; i++) {
+        for (int j = 0; j < matrixint.length; j++) {
+            if (count[i][j] < 2) {
+                matrixint[i][j] = 0;
+            }
+            if (count[i][j] > 3) {
+                matrixint[i][j] = 0;
+            }
+            if (count [i][j] == 3) {
+                matrixint[i][j] = 1;
+            }
         }
     }
 
