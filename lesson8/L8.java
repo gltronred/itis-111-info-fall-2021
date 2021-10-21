@@ -44,38 +44,44 @@ public class L8 {
         }
     }
 
-    for (int i = 0; i < matrixint.length; i++) {
-        for (int j = 0; j < matrixint.length; j++) {
-            count[i][j] = -matrixint[i][j];
-            for (int k = -1; k <= 1; k++) {
-                for (int l = -1; l <= 1; l++) {
-                    count[i][j]+= matrixint[(i + k + n)%(n)][(j + l + n)%(n)];
+    int p = 1;
+    while (p == 1) {
+        for (int i = 0; i < matrixint.length; i++) {
+            for (int j = 0; j < matrixint.length; j++) {
+                count[i][j] = -matrixint[i][j];
+                for (int k = -1; k <= 1; k++) {
+                    for (int l = -1; l <= 1; l++) {
+                        count[i][j]+= matrixint[(i + k + n)%(n)][(j + l + n)%(n)];
+                    }
                 }
             }
         }
-    }
-    for (int i = 0; i < matrixint.length; i++) {
-        for (int j = 0; j < matrixint.length; j++) {
-            if (count[i][j] < 2) {
-                matrixint[i][j] = 0;
-            }
-            if (count[i][j] > 3) {
-                matrixint[i][j] = 0;
-            }
-            if (count [i][j] == 3) {
-                matrixint[i][j] = 1;
-            }
-        }
-    }
 
-    for (int i = 0; i < matrix.length; i++) {
-        System.out.println();
-        for (int j = 0; j < matrix.length ; j++) {
-            if (matrixint[i][j] == 1){
-                matrix[i][j] = '*';
+        for (int i = 0; i < matrixint.length; i++) {
+            for (int j = 0; j < matrixint.length; j++) {
+                if (count[i][j] < 2) {
+                    matrixint[i][j] = 0;
+                }
+                if (count[i][j] > 3) {
+                    matrixint[i][j] = 0;
+                }
+                if (count [i][j] == 3) {
+                    matrixint[i][j] = 1;
+                }
             }
-            System.out.print(matrix[i][j] + " ");
         }
+
+        for (int i = 0; i < matrix.length; i++) {
+            System.out.println();
+            for (int j = 0; j < matrix.length ; j++) {
+                if (matrixint[i][j] == 1){
+                    matrix[i][j] = '*';
+                }
+                System.out.print(matrix[i][j] + " ");
+            }
+        }
+
+        p = sc.nextInt();
     }
   }
 }
