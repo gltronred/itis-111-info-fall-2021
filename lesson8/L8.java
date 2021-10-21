@@ -32,26 +32,37 @@ public class L8 {
     // 00000  00100
     //
     Scanner sc = new Scanner(System.in);
-    int n = 10;
-    int[][] a = new int[n][n];
 
-    int realN = sc.nextInt();
-    int realM = sc.nextInt();
-    for (int i=0; i<realN; i++) {
-        for (int j=0; j<realM; j++) {
-            a[i][j] = sc.nextInt();
+    int count = 0;
+    char[][] matrix = new char[n][n];
+    int[][] matrixint = new int[n][n];
+
+    for (int i = 0; i < matrixint.length; i++) {
+        for (int j = 0; j < matrixint.length; j++) {
+            matrixint[i][j] = sc.nextInt();
         }
     }
 
-    for (int i=0; i<n; i++) {
-        for (int j=0; j<n; j++) {
-            if (a[i][j] == 0) {
-                System.out.print(" ");
-            } else {
-                System.out.print("*");
+    for (int i = 0; i < matrixint.length; i++) {
+        for (int j = 0; j < matrixint.length; j++) {
+            count = -matrixint[i][j];
+            for (int k = -1; k <= 1; k++) {
+                for (int l = -1; l <= 1; l++) {
+                    count+= matrixint[(i + k + n)%(n)][(j + l + n)%(n)];
+                }
             }
+            System.out.println(i + " " + j + " " + count);
         }
+    }
+
+    for (int i = 0; i < matrix.length; i++) {
         System.out.println();
+        for (int j = 0; j < matrix.length ; j++) {
+            if (matrixint[i][j] == 1){
+                matrix[i][j] = '*';
+            }
+            System.out.print(matrix[i][j] + " ");
+        }
     }
   }
 }
