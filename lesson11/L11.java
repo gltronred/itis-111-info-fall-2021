@@ -12,12 +12,22 @@ public class L11 {
         }
         return c;
     }
-    // TODO: возвращает новый массив с
+    public static int get(int[] a, int i) {
+        if (i >= a.length)
+            return 0;
+        return a[i];
+    }
+    // DONE: возвращает новый массив с
     // поэлементной суммой входных массивов
     // (длина - как у самого длинного, вместо
     // отсутствующих элементов - 0)
     public static int[] add2(int[] a, int[] b) {
-        return a;
+        int n = Math.max(a.length, b.length);
+        int[] c = new int[n];
+        for (int i=0; i<n; i++) {
+            c[i] = get(a,i) + get(b,i);
+        }
+        return c;
     }
     public static void main(String[] args) {
         int[] a = {1,2,3,4,5};
@@ -34,8 +44,8 @@ public class L11 {
         int[] q = add(c,b); // 18,18,14,2
         System.out.println(Arrays.toString(p));
         System.out.println(Arrays.toString(q));
-        int[] p2 = add(a,c); // 10,11,10,5,5
-        int[] q2 = add(c,b); // 18,18,14,2,1
+        int[] p2 = add2(a,c); // 10,11,10,5,5
+        int[] q2 = add2(c,b); // 18,18,14,2,1
         System.out.println(Arrays.toString(p2));
         System.out.println(Arrays.toString(q2));
     }
