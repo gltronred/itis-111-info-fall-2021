@@ -43,8 +43,9 @@ public class L11 {
     //   1       2        3         4    5
     // 1*10^4 + 2*10^3 + 3*10^2 + 4*10 + 5  == 12345
     public static int convert(int q, int[] a) {
+        // Схема Горнера
         int s = 0;
-        for (int i=0; i<n; i++) {
+        for (int i=a.length-1; i>=0; i--) {
             s *= q;
             s += a[i];
         }
