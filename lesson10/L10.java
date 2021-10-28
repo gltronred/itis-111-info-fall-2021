@@ -50,6 +50,15 @@ public class L10 {
         // сработает: возвращаем массив
         d = input3(5);
         print(d);
+        // Проверка isPrime
+        for (int i=1; i<=20; i++) {
+            System.out.print(i + " ");
+            if (isPrime(i)) {
+                System.out.println("prime");
+            } else {
+                System.out.println("composite");
+            }
+        }
     }
     public static void input1(int[] a) {
         a = new int[3];
