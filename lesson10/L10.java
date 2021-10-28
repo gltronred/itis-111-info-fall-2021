@@ -78,7 +78,7 @@ public class L10 {
         }
         return a;
     }
-    // Возвращает, является ли n простым числом
+    // TODO: Возвращает, является ли n простым числом
     public static boolean isPrime(int n) {
         return false;
     }
