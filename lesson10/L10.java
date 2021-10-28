@@ -56,8 +56,12 @@ public class L10 {
             if (isPrime(i)) {
                 System.out.println("prime");
             } else {
-                System.out.println("composite");
+                System.out.println("not prime");
             }
+        }
+        // Проверка divisorSum
+        for (int i=1; i<=20; i++) {
+            System.out.println(i + " " + divisorSum(i));
         }
     }
     public static void input1(int[] a) {
@@ -78,8 +82,20 @@ public class L10 {
         }
         return a;
     }
-    // TODO: Возвращает, является ли n простым числом
+    // DONE: Возвращает, является ли n простым числом
     public static boolean isPrime(int n) {
-        return false;
+        if (n < 2) {
+            return false;
+        }
+        for (int i=2; i*i<=n; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    // TODO: Возвращает сумму всех делителей n
+    public static int divisorSum(int n) {
+        return 0;
     }
 }
