@@ -29,6 +29,22 @@ public class L11 {
         }
         return c;
     }
+    // TODO: в массиве хранятся цифры числа
+    // в q-ичной системе счисления. Младшая
+    // цифра хранится в первом элементе.
+    // Все цифры - от 0 до q-1.
+    // Старшая цифра - не 0.
+    //    convert(10, {3,2,1}) == 123
+    //    convert(16, {14,15}) == 254 (FE) == 15*16+14
+    //    convert(2, {0,0,1}) == 4
+    // Вернуть само число
+    //
+    // a[4]     a[3]     a[2]      a[1] a[0]
+    //   1       2        3         4    5
+    // 1*10^4 + 2*10^3 + 3*10^2 + 4*10 + 5  == 12345
+    public static int convert(int q, int[] a) {
+        return 0;
+    }
     public static void main(String[] args) {
         int[] a = {1,2,3,4,5};
         int[] b = {9,9,7,1,1};
@@ -48,5 +64,9 @@ public class L11 {
         int[] q2 = add2(c,b); // 18,18,14,2,1
         System.out.println(Arrays.toString(p2));
         System.out.println(Arrays.toString(q2));
+
+        System.out.println(convert(10,new int[]{3,2,1})); // 123
+        System.out.println(convert(16,new int[]{14,15})); // 254
+        System.out.println(convert(2,new int[]{0,0,1})); // 4
     }
 }
