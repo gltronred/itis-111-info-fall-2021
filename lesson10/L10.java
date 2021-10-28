@@ -10,6 +10,10 @@ public class L10 {
     public static int f1(int x, int y) {
         return x + y;
     }
+    public static int f2(int s) {
+        s = 123456;
+        return s;
+    }
     public static void print(int[] a) {
         if (a.length > 10) {
             System.out.println("[...]");
@@ -31,5 +35,37 @@ public class L10 {
         print(a);
         print(b);
         print(c);
+        x = 123;
+        System.out.println(x);
+        System.out.println(f2(x));
+        System.out.println(x);
+        int[] d = new int[4];
+        // не сработает: меняем сам указатель
+        input1(d);
+        print(d);
+        // сработает: меняем элементы, но не указатель
+        input2(d);
+        print(d);
+        // сработает: возвращаем массив
+        d = input3(5);
+        print(d);
+    }
+    public static void input1(int[] a) {
+        a = new int[3];
+        for (int i=0; i<a.length; i++) {
+            a[i] = i+1;
+        }
+    }
+    public static void input2(int[] a) {
+        for (int i=0; i<a.length; i++) {
+            a[i] = i+1;
+        }
+    }
+    public static int[] input3(int n) {
+        int[] a = new int[n];
+        for (int i=0; i<a.length; i++) {
+            a[i] = i+1;
+        }
+        return a;
     }
 }
