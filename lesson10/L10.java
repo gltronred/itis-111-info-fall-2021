@@ -26,6 +26,7 @@ public class L10 {
         // return; // можно не писать (для void)
     }
     public static void main(String[] args) {
+        System.out.println(Arrays.toString(args));
         System.out.println(f(2+1));
         int x = 12;
         System.out.println(f1(x*x,f(32)));
@@ -67,5 +68,9 @@ public class L10 {
             a[i] = i+1;
         }
         return a;
+    }
+    // Возвращает, является ли n простым числом
+    public static boolean isPrime(int n) {
+        return false;
     }
 }
