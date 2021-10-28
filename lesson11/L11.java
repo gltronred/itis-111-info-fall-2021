@@ -1,11 +1,16 @@
 import java.util.*;
 
 public class L11 {
-    // TODO: возвращает новый массив с
+    // DONE: возвращает новый массив с
     // поэлементной суммой входных массивов
     // (длина такая же, как у самого короткого)
     public static int[] add(int[] a, int[] b) {
-        return a;
+        int n = Math.min(a.length, b.length);
+        int[] c = new int[n];
+        for (int i=0; i<n; i++) {
+            c[i] = a[i] + b[i];
+        }
+        return c;
     }
     // TODO: возвращает новый массив с
     // поэлементной суммой входных массивов
@@ -31,7 +36,7 @@ public class L11 {
         System.out.println(Arrays.toString(q));
         int[] p2 = add(a,c); // 10,11,10,5,5
         int[] q2 = add(c,b); // 18,18,14,2,1
-        System.out.println(Arrays.toString(p));
-        System.out.println(Arrays.toString(q));
+        System.out.println(Arrays.toString(p2));
+        System.out.println(Arrays.toString(q2));
     }
 }
