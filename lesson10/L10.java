@@ -94,8 +94,14 @@ public class L10 {
         }
         return true;
     }
-    // TODO: Возвращает сумму всех делителей n
+    // DONE: Возвращает сумму всех делителей n
     public static int divisorSum(int n) {
-        return 0;
+        int s = 0;
+        for (int i=1; i<=n; i++) {
+            if (n % i == 0) {
+                s += i;
+            }
+        }
+        return s;
     }
 }
