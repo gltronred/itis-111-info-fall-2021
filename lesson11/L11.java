@@ -43,7 +43,12 @@ public class L11 {
     //   1       2        3         4    5
     // 1*10^4 + 2*10^3 + 3*10^2 + 4*10 + 5  == 12345
     public static int convert(int q, int[] a) {
-        return 0;
+        int s = 0;
+        for (int i=0; i<n; i++) {
+            s *= q;
+            s += a[i];
+        }
+        return s;
     }
     public static void main(String[] args) {
         int[] a = {1,2,3,4,5};
