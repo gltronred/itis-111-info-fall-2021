@@ -27,13 +27,22 @@ public class L12 {
     }
     // Решение треугольной системы
     public static double[] solveTri(double[][] a, double[] b) {
-        return b;
+        double[] x = new double[a.length];
+        for (int i=a.length-1; i>=0; i--) {
+            x[i]=b[i];
+            for (int j=i+1; j<a.length; j++) {
+                x[i] -= a[i][j]*x[j];
+            }
+            x[i] /= a[i][i];
+        }
+        return x;
     }
     public static double[] solve(double[][] a, double[] b) {
         for (int i=0; i<a.length-1; i++) {
             // Находим строку не с нулём
             int i2 = i;
-            while (i2<a.length && a[i2][i] == 0) { // проверка на 0!
+            while (i2<a.length && a[i2][i] == 0) {
+            // проверка на 0!
                 i2++;
             }
             // Ставим её на i-е место
