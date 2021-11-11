@@ -23,9 +23,28 @@ public class L12 {
         for (int j=0; j<a[i1].length; j++) {
             a[i1][j] -= k*a[i2][j];
         }
+        b[i1] -= k*b[i2];
+    }
+    // Решение треугольной системы
+    public static double[] solveTri(double[][] a, double[] b) {
+        return b;
     }
     public static double[] solve(double[][] a, double[] b) {
-        return b;
+        for (int i=0; i<a.length-1; i++) {
+            // Находим строку не с нулём
+            int i2 = i;
+            while (i2<a.length && a[i2][i] == 0) { // проверка на 0!
+                i2++;
+            }
+            // Ставим её на i-е место
+            swap(a,b,i,i2);
+            // Вычитаем её из остальных
+            for (int j=i+1; j<a.length; j++) {
+                double k = a[j][i] / a[i][i];
+                sub(a,b,j,i,k);
+            }
+        }
+        return solveTri(a,b);
     }
     public static void main(String[] args) {
         double[][] a = {
@@ -45,6 +64,7 @@ public class L12 {
         // printSystem(a,b);
 
         double[] x = solve(a,b);
+        printSystem(a,b);
         System.out.println(Arrays.toString(x));
     }
 }
