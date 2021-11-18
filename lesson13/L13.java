@@ -16,11 +16,17 @@ class Counter {
 
 class Lamp {
     boolean on;
+    boolean broken;
     // если включили не в 220 вольт,
     // лампочка сломается и больше
     // не будет включаться
     public void turnOn(int voltage) {
-        on = true;
+        if (voltage > 220) {
+            broken = true;
+            on = false;
+        } else if (!broken){
+            on = true;
+        }
     }
     public void turnOff(){ on = false; }
     public boolean isOn(){ return on; }
