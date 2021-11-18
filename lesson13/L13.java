@@ -41,6 +41,7 @@ class Light {
     public void turnOn() {}
     public void turnOff() {}
     public int getLights() { return 0; }
+    public void change(int i, Lamp lamp) {}
 }
 
 public class L13 {
@@ -61,20 +62,34 @@ public class L13 {
         // System.out.println(c1);
         // System.out.println(inc(c1));
 
-        Lamp lamp = new Lamp(220);
-        lamp.turnOn(220); // включается
-        System.out.println(lamp.isOn());
-        lamp.turnOff();   // выключается
-        System.out.println(lamp.isOn());
-        lamp.turnOn(380); // ломается
-        System.out.println(lamp.isOn());
-        lamp.turnOn(220); // не включается - сломана
-        System.out.println(lamp.isOn());
+        // Lamp lamp = new Lamp(220);
+        // lamp.turnOn(220); // включается
+        // System.out.println(lamp.isOn());
+        // lamp.turnOff();   // выключается
+        // System.out.println(lamp.isOn());
+        // lamp.turnOn(380); // ломается
+        // System.out.println(lamp.isOn());
+        // lamp.turnOn(220); // не включается - сломана
+        // System.out.println(lamp.isOn());
 
-        // лампочка l2 рассчитана на 380 В
-        Lamp l2 = new Lamp(380);
-        // поэтому не ломается
-        l2.turnOn(380);
-        System.out.println(l2.isOn());
+        // // лампочка l2 рассчитана на 380 В
+        // Lamp l2 = new Lamp(380);
+        // // поэтому не ломается
+        // l2.turnOn(380);
+        // System.out.println(l2.isOn());
+
+        // люстра на пять лампочек
+        Light light = new Light(5);
+        // включаем
+        light.turnOn();
+        // проверяем, что работает
+        System.out.println(light.getLights());
+        // выключаем
+        light.turnOff();
+        // заменяем лампочку на другую
+        light.change(2, new Lamp(123));
+        // включаем и проверяем
+        light.turnOn();
+        System.out.println(light.getLights());
     }
 }
