@@ -88,7 +88,12 @@ class Light {
         lamps[i] = lamp;
     }
     public void repair(LampFactory factory) {
-
+        turnOn();
+        for (int i=0; i<lamps.length; i++) {
+            if (!lamps[i].isOn()) {
+                lamps[i] = factory.getNewLamp();
+            }
+        }
     }
     public String toString() {
         return Arrays.toString(lamps);
@@ -149,5 +154,7 @@ public class L13 {
         for (int i=0; i<5; i++) {
             System.out.println(lampFactory.getNewLamp());
         }
+        light.repair(lampFactory);
+        System.out.println(light);
     }
 }
