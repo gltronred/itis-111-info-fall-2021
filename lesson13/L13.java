@@ -34,6 +34,22 @@ class Lamp {
     }
     public void turnOff(){ on = false; }
     public boolean isOn(){ return on; }
+    public String toString() {
+        return "Lamp(" + correct + ")";
+    }
+}
+
+class LampFactory {
+    // возвращает лампочку со случайным
+    // напряжением
+    // (см. класс Random)
+    Random random;
+    public LampFactory() {
+        this.random = new Random();
+    }
+    public Lamp getNewLamp() {
+        return new Lamp(random.nextInt(1000));
+    }
 }
 
 class Light {
@@ -70,6 +86,9 @@ class Light {
     }
     public void change(int i, Lamp lamp) {
         lamps[i] = lamp;
+    }
+    public void repair() {
+
     }
     public String toString() {
         return Arrays.toString(lamps);
@@ -125,5 +144,10 @@ public class L13 {
         // включаем и проверяем
         light.turnOn();
         System.out.println(light.getLights());
+
+        LampFactory lampFactory = new LampFactory();
+        for (int i=0; i<5; i++) {
+            System.out.println(lampFactory.getNewLamp());
+        }
     }
 }
