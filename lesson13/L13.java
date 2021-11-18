@@ -87,7 +87,7 @@ class Light {
     public void change(int i, Lamp lamp) {
         lamps[i] = lamp;
     }
-    public void repair() {
+    public void repair(LampFactory factory) {
 
     }
     public String toString() {
