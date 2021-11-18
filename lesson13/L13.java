@@ -17,11 +17,15 @@ class Counter {
 class Lamp {
     boolean on;
     boolean broken;
+    int correct;
+    public Lamp(int correct) {
+        this.correct = correct;
+    }
     // если включили не в 220 вольт,
     // лампочка сломается и больше
     // не будет включаться
     public void turnOn(int voltage) {
-        if (voltage > 220) {
+        if (voltage > this.correct) {
             broken = true;
             on = false;
         } else if (!broken){
@@ -50,7 +54,7 @@ public class L13 {
         // System.out.println(c1);
         // System.out.println(inc(c1));
 
-        Lamp lamp = new Lamp();
+        Lamp lamp = new Lamp(220);
         lamp.turnOn(220); // включается
         System.out.println(lamp.isOn());
         lamp.turnOff();   // выключается
@@ -59,5 +63,11 @@ public class L13 {
         System.out.println(lamp.isOn());
         lamp.turnOn(220); // не включается - сломана
         System.out.println(lamp.isOn());
+
+        // лампочка l2 рассчитана на 380 В
+        Lamp l2 = new Lamp(380);
+        // поэтому не ломается
+        l2.turnOn(380);
+        System.out.println(l2.isOn());
     }
 }
