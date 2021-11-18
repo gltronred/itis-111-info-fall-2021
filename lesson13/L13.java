@@ -68,7 +68,9 @@ class Light {
         }
         return s;
     }
-    public void change(int i, Lamp lamp) {}
+    public void change(int i, Lamp lamp) {
+        lamps[i] = lamp;
+    }
     public String toString() {
         return Arrays.toString(lamps);
     }
