@@ -37,11 +37,41 @@ class Lamp {
 }
 
 class Light {
-    public Light(int n) {}
-    public void turnOn() {}
-    public void turnOff() {}
-    public int getLights() { return 0; }
+    Lamp[] lamps;
+    public Light(int n) {
+        lamps = new Lamp[n];
+        for (int i=0; i<n; i++) {
+            lamps[i] = new Lamp(220);
+        }
+    }
+    public void turnOn() {
+        for (int i=0; i<lamps.length; i++) {
+            lamps[i].turnOn(220);
+        }
+    }
+    public void turnOff() {
+        for (int i=0; i<lamps.length; i++) {
+            lamps[i].turnOff();
+        }
+    }
+    public int getLights() {
+        int s = 0;
+        // for (int i=0; i<lamps.length; i++) {
+        //     if (lamps[i].isOn()) {
+        //         s++;
+        //     }
+        // }
+        for (Lamp lamp : lamps) {
+            if (lamp.isOn()) {
+                s++;
+            }
+        }
+        return s;
+    }
     public void change(int i, Lamp lamp) {}
+    public String toString() {
+        return Arrays.toString(lamps);
+    }
 }
 
 public class L13 {
@@ -80,6 +110,7 @@ public class L13 {
 
         // люстра на пять лампочек
         Light light = new Light(5);
+        System.out.println(light);
         // включаем
         light.turnOn();
         // проверяем, что работает
@@ -88,6 +119,7 @@ public class L13 {
         light.turnOff();
         // заменяем лампочку на другую
         light.change(2, new Lamp(123));
+        System.out.println(light);
         // включаем и проверяем
         light.turnOn();
         System.out.println(light.getLights());
