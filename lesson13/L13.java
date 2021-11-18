@@ -36,6 +36,13 @@ class Lamp {
     public boolean isOn(){ return on; }
 }
 
+class Light {
+    public Light(int n) {}
+    public void turnOn() {}
+    public void turnOff() {}
+    public int getLights() { return 0; }
+}
+
 public class L13 {
     // public static Counter inc(Counter c) {
     //     c.increment();
