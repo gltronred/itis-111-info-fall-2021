@@ -14,6 +14,12 @@ class Counter {
     }
 }
 
+class Lamp {
+    public void turnOn() {}
+    public void turnOff(){}
+    public boolean isOn(){ return false; }
+}
+
 public class L13 {
     public static Counter inc(Counter c) {
         c.increment();
@@ -31,5 +37,11 @@ public class L13 {
         System.out.println(inc(c1).getCount());
         System.out.println(c1);
         System.out.println(inc(c1));
+
+        Lamp lamp = new Lamp();
+        lamp.turnOn();
+        System.out.println(lamp.isOn());
+        lamp.turnOff();
+        System.out.println(lamp.isOn());
     }
 }
