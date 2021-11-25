@@ -18,6 +18,9 @@ class Lamp {
     boolean on;
     boolean broken;
     int correct;
+    public Lamp() {
+        this.correct = 220;
+    }
     public Lamp(int correct) {
         this.correct = correct;
     }
@@ -36,6 +39,36 @@ class Lamp {
     public boolean isOn(){ return on; }
     public String toString() {
         return "Lamp(" + correct + ")";
+    }
+}
+
+class RGBLamp extends Lamp {
+    int r, g, b;
+    RGBLamp(int r, int g, int b) {
+        this.r = r;
+        this.g = g;
+        this.b = b;
+    }
+    public void turnOn(int voltage) {
+        super.turnOn(voltage);
+        this.r = 255;
+        this.g = 255;
+        this.b = 255;
+    }
+    public int getR() { return r; }
+    public int getG() { return g; }
+    public int getB() { return b; }
+    public String toString() {
+        return "RGBLamp(" + correct + ")" +
+            " r=" + getR() +
+            " g=" + getG() +
+            " b=" + getB();
+    }
+}
+
+class WhiteLamp extends Lamp {
+    public WhiteLamp() {
+        super(220);
     }
 }
 
@@ -134,27 +167,34 @@ public class L13 {
         // l2.turnOn(380);
         // System.out.println(l2.isOn());
 
-        // люстра на пять лампочек
-        Light light = new Light(5);
-        System.out.println(light);
-        // включаем
-        light.turnOn();
-        // проверяем, что работает
-        System.out.println(light.getLights());
-        // выключаем
-        light.turnOff();
-        // заменяем лампочку на другую
-        light.change(2, new Lamp(123));
-        System.out.println(light);
-        // включаем и проверяем
-        light.turnOn();
-        System.out.println(light.getLights());
+        // // люстра на пять лампочек
+        // Light light = new Light(5);
+        // System.out.println(light);
+        // // включаем
+        // light.turnOn();
+        // // проверяем, что работает
+        // System.out.println(light.getLights());
+        // // выключаем
+        // light.turnOff();
+        // // заменяем лампочку на другую
+        // light.change(2, new Lamp(123));
+        // System.out.println(light);
+        // // включаем и проверяем
+        // light.turnOn();
+        // System.out.println(light.getLights());
 
-        LampFactory lampFactory = new LampFactory();
-        for (int i=0; i<5; i++) {
-            System.out.println(lampFactory.getNewLamp());
-        }
-        light.repair(lampFactory);
-        System.out.println(light);
+        // LampFactory lampFactory = new LampFactory();
+        // for (int i=0; i<5; i++) {
+        //     System.out.println(lampFactory.getNewLamp());
+        // }
+        // light.repair(lampFactory);
+        // System.out.println(light);
+        RGBLamp l1 = new RGBLamp(100,255,0);
+        System.out.println(l1.getR());
+        l1.turnOn(220);
+        System.out.println(l1.isOn());
+        System.out.println(l1);
+        Lamp l2 = new RGBLamp(255,100,0);
+        System.out.println(l2);
     }
 }
