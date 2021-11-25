@@ -310,3 +310,86 @@ compare(10, new int[]{1,2,3}, new int[]{3,1,1}) == 1    // 321 > 113
 - `void turnOn()` - зажечь свечу
 - `void turnOff()` - погасить свечу
 - `boolean getState()` - горит ли свеча?
+
+## 16
+
+Реализуйте класс `Creature` - живое существо. У живого существа есть имя `name`, очки жизни `hp` и уровень `level`.
+Живое существо может:
+- атаковать противника: `void attack(Creature other)`, при этом `hp` противника уменьшаются на `level` живого существа, а в консоль выводится `<name> attacks <other_name>: <other_hp> left`.
+- быть создано конструктором с параметрами `(String name, int hp)`, при этом начальный уровень равен 1
+
+Унаследуйте от `Creature` следующие классы.
+
+Класс `Elf` - эльф. Эльфы могут:
+- лечить себя `void heal()` или друга `void heal(Creature friend)`, при этом соответствующий `hp` увеличивается на 1, а в консоль выводится, соответственно, `<name> heals self: <hp>` или `<name> heals <friend_name>: <friend_hp>`
+- быть созданы конструктором с параметрами `(String name)`, начальный `hp` равен 250
+
+Класс `Dwarf` - гном. Гномы могут:
+- улучшать чужое оружие `void upgrade(Creature friend)`, при этом уровень друга увеличивается на 1, а в консоль выводится `<name> upgrades <friend_name> to <friend_level>`
+- быть созданы конструктором с параметрами `(String name)`, начальный `hp` равен 150
+
+Класс `Human` - человек. Люди могут:
+- размножаться `Human reproduce()`, при этом свой уровень делится на два нацело, и половина передаётся потомку, а половина остаётся у родителя. Очки жизни `hp` копируются, имя строится как `<name>, son of <name>`. В консоль выводится `<name> gives birth to <son_name>: <level>`
+- быть созданы конструктором с параметрами `(String name)`, начальный `hp` равен 100
+
+Пример программы и её вывода на консоль:
+
+``` java
+// заходят как-то эльф, гном и человек в бар...
+Elf elf = new Elf("Finrod");
+Dwarf dwarf = new Dwarf("Gimli");
+Human human1 = new Human("Aragorn");
+
+dwarf.upgrade(human1);
+dwarf.upgrade(human1);
+Human human2 = human1.reproduce();
+dwarf.upgrade(elf);
+dwarf.upgrade(elf);
+elf.heal();
+elf.heal(human1);
+elf.heal(human2);
+Human human3 = human2.reproduce();
+
+Creature[] friends = new Creature[5];
+friends[0] = elf;
+friends[1] = dwarf;
+friends[2] = human1;
+friends[3] = human2;
+friends[4] = human3;
+
+Creature orc = new Creature("Unnamed Orc 43134", 10);
+
+for (int i=0; i<2; i++) {
+    for (Creature friend : friends) {
+        friend.attack(orc);
+    }
+}
+// объявляется конкурс на лучшую текстовую и киноадаптацию 
+// (не меньше, чем в трёх сериях) программы на Java и 
+// её вывода на консоль
+```
+
+Вывод на консоль:
+
+```
+Gimli upgrades Aragorn to 2
+Gimli upgrades Aragorn to 3
+Aragorn gives birth to Aragorn, son of Aragorn: 1
+Gimli upgrades Finrod to 2
+Gimli upgrades Finrod to 3
+Finrod heals self: 253
+Finrod heals Aragorn: 103
+Finrod heals Aragorn, son of Aragorn: 103
+Aragorn, son of Aragorn gives birth to Aragorn, son of Aragorn, son of Aragorn, son of Aragorn: 0
+Finrod attacks Unnamed Orc 43134: 7 left
+Gimli attacks Unnamed Orc 43134: 6 left
+Aragorn attacks Unnamed Orc 43134: 5 left
+Aragorn, son of Aragorn attacks Unnamed Orc 43134: 5 left
+Aragorn, son of Aragorn, son of Aragorn, son of Aragorn attacks Unnamed Orc 43134: 5 left
+Finrod attacks Unnamed Orc 43134: 2 left
+Gimli attacks Unnamed Orc 43134: 1 left
+Aragorn attacks Unnamed Orc 43134: 0 left
+Aragorn, son of Aragorn attacks Unnamed Orc 43134: 0 left
+Aragorn, son of Aragorn, son of Aragorn, son of Aragorn attacks Unnamed Orc 43134: 0 left
+```
+
