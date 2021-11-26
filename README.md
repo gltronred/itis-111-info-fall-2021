@@ -321,7 +321,7 @@ compare(10, new int[]{1,2,3}, new int[]{3,1,1}) == 1    // 321 > 113
 Унаследуйте от `Creature` следующие классы.
 
 Класс `Elf` - эльф. Эльфы могут:
-- лечить себя `void heal()` или друга `void heal(Creature friend)`, при этом соответствующий `hp` увеличивается на 1, а в консоль выводится, соответственно, `<name> heals self: <hp>` или `<name> heals <friend_name>: <friend_hp>`
+- лечить себя `void heal()` или друга `void heal(Creature friend)`, при этом соответствующий `hp` увеличивается на уровень эльфа, а в консоль выводится, соответственно, `<name> heals self: <hp>` или `<name> heals <friend_name>: <friend_hp>`
 - быть созданы конструктором с параметрами `(String name)`, начальный `hp` равен 250
 
 Класс `Dwarf` - гном. Гномы могут:
