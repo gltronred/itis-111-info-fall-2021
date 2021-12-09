@@ -27,14 +27,14 @@ class Human
   }
 }
 
-class Robot implements Delivery, ISpeakable {
+abstract class Robot implements Delivery, ISpeakable {
   int id;
   public Robot(int id) {
     this.id = id;
   }
-  public void deliver(String what, String where) {
-    System.out.println(id + " bip bop bip " + what + " bip bip " + where);
-  }
+  // public void deliver(String what, String where) {
+  //   System.out.println(id + " bip bop bip " + what + " bip bip " + where);
+  // }
   public void speak(String who) {
     System.out.println(id + " beeps to " + who);
   }
@@ -42,6 +42,9 @@ class Robot implements Delivery, ISpeakable {
 
 class SelfdrivingCar extends Robot {
   public SelfdrivingCar() { super(321); }
+  public void deliver(String what, String where) {
+    System.out.println(id + " bip bop bip " + what + " bip bip " + where);
+  }
 }
 
 abstract class Graphic {
@@ -82,7 +85,8 @@ public class L14 {
     // s.speak("me");
     // s = robot;
     // s.speak("me");
-    // work(new SelfdrivingCar());
+    work(new SelfdrivingCar());
+
     Graphic circle = new Circle();
     Graphic rectangle = new Rectangle();
     circle.moveTo(23,45);
