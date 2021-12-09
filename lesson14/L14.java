@@ -5,11 +5,15 @@ interface Delivery {
   void deliver(String what, String where);
 }
 
+interface ISpeakable {
+  void speak(String who);
+}
+
 class Living {}
 
 class Human
         extends Living
-        implements Delivery
+        implements Delivery, ISpeakable
 {
   String name;
   public Human(String name) {
@@ -18,15 +22,21 @@ class Human
   public void deliver(String what, String where) {
     System.out.println(name + " delivers " + what + " to " + where);
   }
+  public void speak(String who) {
+    System.out.println(name + " speaks to " + who);
+  }
 }
 
-class Robot implements Delivery {
+class Robot implements Delivery, ISpeakable {
   int id;
   public Robot(int id) {
     this.id = id;
   }
   public void deliver(String what, String where) {
     System.out.println(id + " bip bop bip " + what + " bip bip " + where);
+  }
+  public void speak(String who) {
+    System.out.println(id + " beeps to " + who);
   }
 }
 
@@ -42,5 +52,10 @@ public class L14 {
     robot.deliver("byte", "home");
     work(human2);
     work(robot);
+    ISpeakable s;
+    s = human1;
+    s.speak("me");
+    s = robot;
+    s.speak("me");
   }
 }
