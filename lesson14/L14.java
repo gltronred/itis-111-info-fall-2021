@@ -44,23 +44,50 @@ class SelfdrivingCar extends Robot {
   public SelfdrivingCar() { super(321); }
 }
 
+abstract class Graphic {
+  int x, y;
+  public void moveTo(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
+  public abstract void draw();
+}
+
+class Circle extends Graphic {
+  public void draw() {
+    System.out.println("Circle(" + x + "," + y + ")");
+  }
+}
+
+class Rectangle extends Graphic {
+  public void draw() {
+    System.out.println("Rectangle(" + x + "," + y + ")");
+  }
+}
+
 public class L14 {
   public static void work(Delivery d) {
     d.deliver("something", "somewhere");
   }
   public static void main(String[] args) {
-    Human human1 = new Human("Alice");
-    Human human2 = new Human("Bob");
-    Robot robot = new Robot(123);
-    human1.deliver("pizza","home");
-    robot.deliver("byte", "home");
-    work(human2);
-    work(robot);
-    ISpeakable s;
-    s = human1;
-    s.speak("me");
-    s = robot;
-    s.speak("me");
-    work(new SelfdrivingCar());
+    // Human human1 = new Human("Alice");
+    // Human human2 = new Human("Bob");
+    // Robot robot = new Robot(123);
+    // human1.deliver("pizza","home");
+    // robot.deliver("byte", "home");
+    // work(human2);
+    // work(robot);
+    // ISpeakable s;
+    // s = human1;
+    // s.speak("me");
+    // s = robot;
+    // s.speak("me");
+    // work(new SelfdrivingCar());
+    Graphic circle = new Circle();
+    Graphic rectangle = new Rectangle();
+    circle.moveTo(23,45);
+    rectangle.moveTo(1,2);
+    circle.draw();
+    rectangle.draw();
   }
 }
