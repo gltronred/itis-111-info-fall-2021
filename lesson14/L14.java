@@ -40,6 +40,10 @@ class Robot implements Delivery, ISpeakable {
   }
 }
 
+class SelfdrivingCar extends Robot {
+  public SelfdrivingCar() { super(321); }
+}
+
 public class L14 {
   public static void work(Delivery d) {
     d.deliver("something", "somewhere");
@@ -57,5 +61,6 @@ public class L14 {
     s.speak("me");
     s = robot;
     s.speak("me");
+    work(new SelfdrivingCar());
   }
 }
